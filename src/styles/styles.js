@@ -14,6 +14,9 @@ export default {
     justifyContent: 'flex-end',
     paddingBottom: 18
   },
+  appBar_title: {
+    flex: '1'
+  },
   errorContainer: {
     paddingBottom: '0 !important'
   },
