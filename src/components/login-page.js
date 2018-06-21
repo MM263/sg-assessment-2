@@ -55,6 +55,7 @@ class Login extends Component {
               label='Login'
             />
             <TextField
+              type='password'
               classes={{
                 root: classes.textField
               }}
@@ -100,12 +101,12 @@ class Login extends Component {
 
   onLoginChange = e => {
     const login = e.target.value
-    this.setState(() => ({ login }))
+    this.setState(({ login }))
   }
 
   onPasswordChange = e => {
     const password = e.target.value
-    this.setState(() => ({ password }))
+    this.setState(({ password }))
   }
 
   onSubmit = e => {

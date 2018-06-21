@@ -7,6 +7,9 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 
+import DashboardActions from './dashboard-actions'
+import DashboardContent from './dashboard-content'
+import { onLogout } from '../actions/auth'
 import styles from '../styles/styles'
 
 class Dashboard extends Component {
@@ -22,28 +25,35 @@ class Dashboard extends Component {
               color='inherit'
               className={classes.appBar_title}
             >
-              SG-Assessment 2: Electric Boogaloo
+                SG-Assessment 2: Electric Boogaloo
             </Typography>
             <Button
               color='inherit'
+              onClick={this.onLogout}
             >
-              Logout
+                Logout
             </Button>
           </Toolbar>
         </AppBar>
+        <div className={classes.dashboardContent}>
+          <DashboardActions />
+          <DashboardContent />
+        </div>
       </div>
     )
   }
 
   onLogout = e => {
+    const { onLogout } = this.props
 
+    onLogout()
   }
 }
 
 const DashboardPage = withStyles(styles)(Dashboard)
 
-const mapStateToProps = state => ({
-  invoices: state.invoices
+const mapDispatchToProps = dispatch => ({
+  onLogout: () => dispatch(onLogout())
 })
 
-export default connect(mapStateToProps)(DashboardPage)
+export default connect(null, mapDispatchToProps)(DashboardPage)
