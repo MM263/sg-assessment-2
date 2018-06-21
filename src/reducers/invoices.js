@@ -18,6 +18,11 @@ export default (state = invoicesReducerDefaultState, action) => {
         }
         return invoice
       })
+    case 'MERGE_INVOICES':
+      return {
+        ...state,
+        ...action.updates
+      }
     default:
       return state
   }

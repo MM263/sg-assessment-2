@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 
 import PublicRoute from './public-route'
@@ -13,7 +13,7 @@ const AppRouter = () => (
   <Router history={history}>
     <Switch>
       <PublicRoute path='/' component={LoginPage} exact />
-      <Route path='/dashboard' component={DashboardPage} />
+      <PrivateRoute path='/dashboard' component={DashboardPage} />
     </Switch>
   </Router>
 )

@@ -11,6 +11,7 @@ import Collapse from '@material-ui/core/Collapse'
 import { withStyles } from '@material-ui/core/styles'
 import Warning from '@material-ui/icons/Warning'
 
+import { onLogin } from '../actions/auth'
 import styles from '../styles/styles'
 
 class Login extends Component {
@@ -33,7 +34,6 @@ class Login extends Component {
   render () {
     const { classes, error } = this.props
     const { login, password } = this.state
-    console.log('error:', error)
 
     return (
       <div className={classes.loginContainer}>
@@ -123,7 +123,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLogin: (login, password) => dispatch({ type: '*AUTH_REQUEST', payload: { login, password } })
+  onLogin: (login, password) => dispatch(onLogin(login, password))
 })
 
 const LoginPage = withStyles(styles)(Login)
